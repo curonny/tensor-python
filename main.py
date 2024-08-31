@@ -65,4 +65,5 @@ app = gr.Interface(
 )
 
 print('Running on http://localhost:' + os.getenv('PORT'))
-app.launch(server_port=int(os.getenv('PORT')))
+port = int(os.getenv('PORT', 7860))
+app.launch(server_port=port)
