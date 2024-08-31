@@ -64,4 +64,5 @@ app = gr.Interface(
     description="Classify image using TFLite",
 )
 
+print('Running on http://localhost:' + os.getenv('PORT'))
 app.launch(server_port=int(os.getenv('PORT')))
