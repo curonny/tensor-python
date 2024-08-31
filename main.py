@@ -4,6 +4,9 @@ import tensorflow as tf
 from PIL import Image, ImageDraw, ImageFont
 
 import gradio as gr
+from dotenv import load_dotenv
+
+load_dotenv()
 
 model_path = os.path.join(os.getcwd(), 'tfile', 'ssd_mobilenet.tflite')
 interpreter = tf.lite.Interpreter(model_path=model_path)
@@ -46,7 +49,7 @@ def process_image(image):
         line_height = text_bbox[3] - text_bbox[1]
         x = (width - text_width) // 2
         y = start_y + i * (line_height + 10)
-        draw.text((x, y), text, font=font, fill="white")
+        draw.text((x, y), text, font=font, fill="black")
 
     return image
 
@@ -59,4 +62,4 @@ app = gr.Interface(
     description="Classify image using TFLite",
 )
 
-app.launch()
+app.launch(server_port=int(os.getenv('PORT')))
