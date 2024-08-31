@@ -1,5 +1,5 @@
 # Usar una imagen base de Python 3
-FROM python:3.8.19-alpine
+FROM python:3.8.19
 
 WORKDIR /app
 
