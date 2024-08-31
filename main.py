@@ -6,6 +6,8 @@ from PIL import Image, ImageDraw, ImageFont
 import gradio as gr
 from dotenv import load_dotenv
 
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
+
 load_dotenv()
 
 model_path = os.path.join(os.getcwd(), 'tfile', 'ssd_mobilenet.tflite')
